@@ -3,11 +3,25 @@ package _03_polymorphs;
 import java.awt.Graphics;
 
 public abstract class Polymorph {
-    int x;
-    int y;
+    private int x;
+    private int y;
+    
+    int getx() {
+    	return this.getX();
+    }
+    void setx(int x) {
+    	this.setX(x);
+    }
+    
+    int gety() {
+    	return this.y;
+    }
+    void sety(int y) {
+    	this.y = y;
+    }
     
     Polymorph(int x, int y){
-   	 this.x = x;
+   	 this.setX(x);
    	 this.y = y;
     }
     
@@ -16,4 +30,10 @@ public abstract class Polymorph {
     }
     
     public abstract void draw(Graphics g);
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
 }

@@ -20,9 +20,8 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
     
     private JFrame window;
     private Timer timer;
-    //ArrayList<Polymorph>polymorphs;
-    //CircleMorph circle = new CircleMorph(300, 300);
-    MouseMorph  mousemorph = new MouseMorph(100,100);
+    MouseMorph  mouse;
+    RedMorph red;
     public static void main(String[] args) {
    	 new PolymorphWindow().buildWindow();
     }
@@ -36,13 +35,8 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
    	 window.setVisible(true);
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
-//   	polymorphs = new ArrayList<Polymorph>();
-//   	polymorphs.add(new RedMorph(5,5));
-//   	polymorphs.add(new BluePolymorph(230,15));
-//   	polymorphs.add(new MovingMorph(100,70));
-//   	polymorphs.add(new BluePolymorph(300,30));
-//   	polymorphs.add(new RedMorph(400,400));
-   	
+   	 mouse = new MouseMorph(100,100);
+   	 red = new RedMorph(0,0);
    	 
     }
     
@@ -50,21 +44,15 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
     //draw background
    	 g.setColor(Color.LIGHT_GRAY);
    	 g.fillRect(0, 0, 500, 500);
-//   	for(Polymorph p: polymorphs) {
-//   		p.draw(g);
-//   	}
-   	 //circle.draw(g);
-   	 mousemorph.draw(g);
-
+   	 mouse.draw(g);
+   	 red.draw(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
    	 repaint();
-//    	for(Polymorph p: polymorphs) {
-//       		p.update();
-//       	}
-   	// circle.update();
+   	 red.update();
+   	 
    	 }
 
 	@Override
@@ -76,6 +64,7 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		//mouse.setx(getMousePosition().x);
+		//mouse.sety(getMousePosition().y);
 	}
 }

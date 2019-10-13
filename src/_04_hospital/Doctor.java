@@ -4,32 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor {
-
+	ArrayList<Patient> patients = new ArrayList<Patient>();
 
 	public void assignPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		
+		if(patients.size()<3) {
+		patients.add(patient);
+		}
 	}
 
-	public Object performsSurgery() {
+	public boolean performsSurgery() {
 		// TODO Auto-generated method stub
 
-		return null;
+		return false;
 	}
 
 	public void doMedicine() {
 		// TODO Auto-generated method stub
-		
+		for(Patient p:patients) {
+			p.checkPulse();
+		}
 	}
 
-	public Object makesHouseCalls() {
+	public boolean makesHouseCalls() {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
-	public ArrayList<Doctor> getPatients() {
+	public ArrayList<Patient> getPatients() {
 		// TODO Auto-generated method stub
-		return null;
+		return patients;
 	}
 
 }
